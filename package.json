@@ -1,0 +1,26 @@
+{
+  "name": "gulp-web-build-boilerplate",
+  "version": "0.0.1",
+  "description": "Boilerplate for web development, includes Gulp, Browser Sync",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-kit": "^0.3.0",
+    "webpack": "^1.13.1",
+    "webpack-stream": "^3.2.0"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "start": "gulp",
+    "install": "mkdir -p src && mkdir -p src/kit && mkdir -p assets && mkdir -p assets/sass && mkdir -p assets/css && mkdir -p assets/js && mkdir -p assets/js/src && mkdir -p assets/js/dist && mkdir -p assets/fonts && mkdir -p assets/img && touch index.html touch src/kit/index.kit && touch assets/js/src/app.js && touch assets/sass/app.scss"
+  },
+  "author": "Victory James Ugwudike (W&S)",
+  "license": "ISC"
+}
