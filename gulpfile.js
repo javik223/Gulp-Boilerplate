@@ -27,7 +27,8 @@ const settings = {
 // Sass options
 const sassOptions = {
     errLogToConsole : true,
-    outputStyle: 'expanded' // Change to compress or compact for production
+    outputStyle: 'expanded', // Change to compress or compact for production
+    includePaths: ['node_modules/foundation-sites/scss'] // Sass include paths
 }
 
 
@@ -57,14 +58,14 @@ gulp.task('serve', ['sass','babelify', 'kit'], function() {
 
 // Compile sass into CSS files
 gulp.task('sass', function() {
-    return gulp.src(settings.sass_folder+'/**/*.scss')
-            .pipe(sourcemaps.init())
-            .pipe(sass(sassOptions))
-            .on('error', sass.logError)
-            .pipe(sourcemaps.write())
-            .pipe(autoprefixer())
-            .pipe(gulp.dest(settings.css_folder))
-            .pipe(browserSync.stream());
+    return gulp.src(settings.sass_folder + '/**/*.scss')
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(sass(sassOptions))
+        .on('error', sass.logError)
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(settings.css_folder))
+        .pipe(browserSync.stream());
 });
 
 // Transpile ES6 files and concat ES6 require files
