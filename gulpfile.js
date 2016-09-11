@@ -63,7 +63,8 @@ gulp.task('sass', function() {
             .on('error', sass.logError)
             .pipe(sourcemaps.write())
             .pipe(autoprefixer())
-            .pipe(gulp.dest(settings.css_folder));
+            .pipe(gulp.dest(settings.css_folder))
+            .pipe(browserSync.stream());
 });
 
 // Transpile ES6 files and concat ES6 require files
